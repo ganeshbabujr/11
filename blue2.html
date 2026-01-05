@@ -1,0 +1,2573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Interview Questions | Complete Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Modern Professional Color Palette - Teal/Cyan Theme */
+            --primary-gradient: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #14b8a6 100%);
+            --secondary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --accent-gradient: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            --success-gradient: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            --primary: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #14b8a6 100%);
+            --secondary: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --accent: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            --success: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+
+            /* Background - Darker, More Professional */
+            --bg-primary: #0c0f14;
+            --bg-secondary: #151921;
+            --bg-card: rgba(21, 25, 33, 0.75);
+            --bg-card-hover: rgba(28, 35, 45, 0.95);
+            --dark: #0c0f14;
+            --dark-card: rgba(21, 25, 33, 0.75);
+            --dark-hover: rgba(28, 35, 45, 0.95);
+
+            /* Text - Better Contrast */
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+
+            /* Accents - Teal/Cyan Theme */
+            --accent-teal: #14b8a6;
+            --accent-cyan: #06b6d4;
+            --accent-sky: #0ea5e9;
+            --accent-emerald: #10b981;
+
+            /* UI Elements */
+            --border-color: rgba(148, 163, 184, 0.12);
+            --border-glow: rgba(6, 182, 212, 0.35);
+            --code-bg: #1e293b;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+            --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f8fa;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --bg-card-hover: rgba(246, 248, 250, 1);
+            --dark: #ffffff;
+            --dark-card: rgba(255, 255, 255, 0.9);
+            --dark-hover: rgba(246, 248, 250, 1);
+
+            --text-primary: #1f2328;
+            --text-secondary: #656d76;
+            --text-muted: #8c959f;
+
+            --border-color: rgba(208, 215, 222, 0.8);
+            --border-glow: rgba(6, 182, 212, 0.6);
+
+            --code-bg: #f6f8fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        /* Enhanced Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(20, 184, 166, 0.08) 0%, transparent 50%);
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            animation: float 25s infinite ease-in-out;
+            mix-blend-mode: screen;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #0ea5e9 0%, transparent 70%);
+            top: -300px;
+            left: -300px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #14b8a6 0%, transparent 70%);
+            bottom: -250px;
+            right: -250px;
+            animation-delay: 7s;
+        }
+
+        .orb-3 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, #10b981 0%, transparent 70%);
+            top: 40%;
+            right: 5%;
+            animation-delay: 14s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(80px, -80px) scale(1.1) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(-60px, 60px) scale(0.9) rotate(180deg);
+            }
+
+            75% {
+                transform: translate(60px, 80px) scale(1.05) rotate(270deg);
+            }
+        }
+
+        /* Premium Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5));
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-glow);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .theme-toggle i {
+            font-size: 1.1rem;
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Hero Section - Ultra Modern */
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease, glow 3s ease-in-out infinite;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.6));
+            }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            font-weight: 400;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .badge {
+            padding: 0.875rem 1.75rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1.5px solid rgba(6, 182, 212, 0.3);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(6, 182, 212, 0.1);
+        }
+
+        .badge:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+        }
+
+        .badge i {
+            font-size: 1.2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modern Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(20, 20, 30, 0.85);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            width: 260px;
+            max-height: 85vh;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sidebar h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.875rem 1.25rem;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+            position: relative;
+        }
+
+        .sidebar a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            background: var(--primary-gradient);
+            border-radius: 0 4px 4px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--text-primary);
+            border-left-color: var(--accent-cyan);
+            transform: translateX(8px);
+        }
+
+        .sidebar a:hover::before,
+        .sidebar a.active::before {
+            width: 4px;
+            height: 60%;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 320px;
+            margin-right: 50px;
+        }
+
+        /* Section */
+        section {
+            margin-bottom: 6rem;
+            scroll-margin-top: 100px;
+        }
+
+        .section-header {
+            margin-bottom: 3.5rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Premium Q&A Grid */
+        .qa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .qa-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .qa-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .qa-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 50%;
+        }
+
+        .qa-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--border-glow);
+            box-shadow: var(--shadow-glow);
+            background: var(--bg-card-hover);
+        }
+
+        .qa-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .qa-card:hover::after {
+            width: 400px;
+            height: 400px;
+        }
+
+        .question {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .question-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 16px rgba(6, 182, 212, 0.4);
+        }
+
+        .answer {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+            font-size: 0.975rem;
+        }
+
+        .answer strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Enhanced Code Blocks */
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            background: var(--code-bg);
+            color: #22d3ee;
+            padding: 0.35rem 0.7rem;
+            border-radius: 8px;
+            font-size: 0.9em;
+            border: 1px solid rgba(34, 211, 238, 0.25);
+            font-weight: 500;
+        }
+
+        pre {
+            background: var(--code-bg);
+            padding: 1.75rem;
+            border-radius: 16px;
+            overflow-x: auto;
+            margin: 1.25rem 0;
+            border: 1px solid var(--border-color);
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #94a3b8;
+        }
+
+        /* Lists */
+        ul.simple-list,
+        ol.simple-list {
+            padding-left: 1.75rem;
+            margin-top: 1rem;
+        }
+
+        ul.simple-list li,
+        ol.simple-list li {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Quick Commands */
+        .quick-commands {
+            background: var(--bg-card);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-top: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .quick-commands h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .command-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .command-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .command-item strong {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* Premium Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 16px 48px rgba(6, 182, 212, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .qa-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 6px;
+            border: 2px solid var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-gradient);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-database"></i>
+                <span>Oracle Interview Prep</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#autosys"><i class="fas fa-clock"></i> AutoSys</a></li>
+                    <li><a href="#unix"><i class="fas fa-terminal"></i> UNIX</a></li>
+                    <li><a href="#sql"><i class="fas fa-database"></i> SQL/PL-SQL</a></li>
+                    <li><a href="#advanced"><i class="fas fa-star"></i> Advanced</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+                <i class="fas fa-moon" id="themeIcon"></i>
+                <span id="themeText">Dark</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <h3>Quick Nav</h3>
+        <ul>
+            <li><a href="#autosys">AutoSys Scheduling</a></li>
+            <li><a href="#unix">UNIX Commands</a></li>
+            <li><a href="#linux">Linux Concepts</a></li>
+            <li><a href="#shell">Shell Scripting</a></li>
+            <li><a href="#sql">Oracle SQL & PL/SQL</a></li>
+            <li><a href="#advanced">Advanced Topics</a></li>
+            <li><a href="#scenarios">Practical Scenarios</a></li>
+            <li><a href="#incidents">Incident Management</a></li>
+            <li><a href="#additional">Additional Q&A</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Oracle Interview Questions</h1>
+            <p>Complete guide for L1/L2 Support roles covering Job Scheduling, OS, Database, and Real-World Scenarios
+            </p>
+            <div class="badge-container">
+                <div class="badge">
+                    <i class="fas fa-clock"></i>
+                    AutoSys
+                </div>
+                <div class="badge">
+                    <i class="fas fa-terminal"></i>
+                    UNIX/Linux
+                </div>
+                <div class="badge">
+                    <i class="fas fa-database"></i>
+                    SQL/PL-SQL
+                </div>
+                <div class="badge">
+                    <i class="fas fa-fire"></i>
+                    Real Scenarios
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- AutoSys Section -->
+            <section id="autosys">
+                <div class="section-header">
+                    <h2 class="section-title">AutoSys Job Scheduling</h2>
+                    <p class="section-subtitle">Enterprise job scheduling and automation</p>
+                </div>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">1</span>
+                            <span>What is AutoSys?</span>
+                        </div>
+                        <div class="answer">AutoSys is an enterprise job scheduling tool used to automate and manage
+                            batch jobs. It handles job dependencies, triggers, calendars, and notifications. Widely used
+                            in Banking, Finance, and ETL environments.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">2</span>
+                            <span>What is a Box Job?</span>
+                        </div>
+                        <div class="answer">A Box job groups related jobs together for easier control. It acts like a
+                            container and runs only when conditions inside are satisfied. Stopping or starting a Box
+                            affects all jobs inside it.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">3</span>
+                            <span>What is a Command Job?</span>
+                        </div>
+                        <div class="answer">A command job runs shell scripts, commands, or programs. It is the most
+                            commonly used job type and is executed on the machine specified by the "machine" attribute.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">4</span>
+                            <span>What is JIL?</span>
+                        </div>
+                        <div class="answer">JIL (Job Information Language) is used to create, modify, or delete jobs. It
+                            defines job properties like command, owner, start time, and conditions without using a GUI.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">5</span>
+                            <span>How do you create a job using JIL?</span>
+                        </div>
+                        <div class="answer">Create a <code>.jil</code> file with job attributes like
+                            <code>insert_job</code>, <code>job_type</code>, and <code>command</code>. Load it using
+                            <code>jil < file.jil</code>.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">6</span>
+                            <span>How do you force start a job?</span>
+                        </div>
+                        <div class="answer">Use the command: <code>sendevent -E FORCE_STARTJOB -J jobname</code>. It
+                            runs the job immediately, ignoring conditions. Used during testing or emergencies.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">7</span>
+                            <span>What are the different job statuses?</span>
+                        </div>
+                        <div class="answer">Common statuses include: STARTING, RUNNING, SUCCESS, FAILURE, TERMINATED,
+                            ON_HOLD, and ON_ICE.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">8</span>
+                            <span>Difference between ON_HOLD and ON_ICE?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>ON_HOLD:</strong> Job does not run and does NOT process events; dependencies stay
+                            active.<br>
+                            <strong>ON_ICE:</strong> Job does not run but passes "SUCCESS" to downstream jobs to avoid
+                            blocking dependencies.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">9</span>
+                            <span>How do you check job details?</span>
+                        </div>
+                        <div class="answer">
+                            <code>autorep -j jobname -q</code> for detailed info.<br>
+                            <code>autorep -j jobname -r</code> to check run history.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">10</span>
+                            <span>What happens if a job fails?</span>
+                        </div>
+                        <div class="answer">The job goes to FAILURE status. Notifications are triggered based on
+                            configuration. Support teams analyze logs, fix the issue, and restart using
+                            <code>sendevent</code>.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">11</span>
+                            <span>What is sendevent?</span>
+                        </div>
+                        <div class="answer"><code>sendevent</code> is used to send commands to AutoSys jobs (e.g.,
+                            STARTJOB, FORCE_STARTJOB, JOB_ON_ICE). Essential for command line control.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">12</span>
+                            <span>What is a File Watcher Job?</span>
+                        </div>
+                        <div class="answer">Monitors the existence or modification of a file. Runs once the file appears
+                            or changes. Common in ETL workflows.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">13</span>
+                            <span>What is a Calendar?</span>
+                        </div>
+                        <div class="answer">Defines specific run dates (weekdays, monthly, holidays). Jobs linked to a
+                            calendar run only on those designated days.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">14</span>
+                            <span>How do you restart a job?</span>
+                        </div>
+                        <div class="answer">Use <code>sendevent -E STARTJOB -J jobname</code>. Use
+                            <code>FORCE_STARTJOB</code> to ignore conditions. Always check logs before restarting.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">15</span>
+                            <span>What is Max Run Alarm?</span>
+                        </div>
+                        <div class="answer">Alerts when a job exceeds its normal runtime. Used to detect hung jobs.
+                            Configured with the <code>max_run_alarm</code> attribute.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">16</span>
+                            <span>Advantages of Control-M?</span>
+                        </div>
+                        <div class="answer">Control-M is used to schedule, monitor, and manage batch jobs from a single
+                            interface. Works across Windows, UNIX, Linux, and cloud platforms.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- UNIX Commands Section -->
+            <section id="unix">
+                <div class="section-header">
+                    <h2 class="section-title">UNIX Commands</h2>
+                    <p class="section-subtitle">Essential commands for daily operations</p>
+                </div>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">1</span>
+                            <span>What is the ls command?</span>
+                        </div>
+                        <div class="answer">Lists files and directories. Options like <code>-l</code> (long format),
+                            <code>-a</code> (hidden files), and <code>-h</code> (human readable) provide details.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">2</span>
+                            <span>How does grep work?</span>
+                        </div>
+                        <div class="answer">Searches for patterns inside files or outputs. Supports regex. Example:
+                            searching logs for errors.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">3</span>
+                            <span>What does ps do?</span>
+                        </div>
+                        <div class="answer">Displays running processes. <code>ps -ef</code> provides full details. Often
+                            combined with grep to find specific processes.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">4</span>
+                            <span>Difference between kill and kill -9?</span>
+                        </div>
+                        <div class="answer">
+                            <code>kill</code> sends SIGTERM (graceful stop).<br>
+                            <code>kill -9</code> sends SIGKILL (forceful stop). Use only if normal termination fails.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">5</span>
+                            <span>What does df -h show?</span>
+                        </div>
+                        <div class="answer">Displays disk usage in human-readable format. Helps check free space on
+                            partitions.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">6</span>
+                            <span>What is the du command?</span>
+                        </div>
+                        <div class="answer">Shows directory or file sizes. <code>du -sh</code> gives a summary of folder
+                            size.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">7</span>
+                            <span>What does chmod do?</span>
+                        </div>
+                        <div class="answer">Changes file permissions (read, write, execute) for user, group, and others.
+                            Supports numeric (755) and symbolic modes.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">8</span>
+                            <span>How is find used?</span>
+                        </div>
+                        <div class="answer">Searches files by name, type, size, or date. Example:
+                            <code>find /path -name "*.log"</code>.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">9</span>
+                            <span>What is tail -f used for?</span>
+                        </div>
+                        <div class="answer">Displays live updates of a file (streaming logs). Shows the last lines and
+                            updates as new lines are added.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">10</span>
+                            <span>What does crontab do?</span>
+                        </div>
+                        <div class="answer">Schedules recurring jobs. <code>crontab -e</code> opens the editor to add
+                            schedules.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">11</span>
+                            <span>What does scp do?</span>
+                        </div>
+                        <div class="answer">Securely copies files between remote systems over SSH (encrypted).</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">12</span>
+                            <span>What is awk used for?</span>
+                        </div>
+                        <div class="answer">Text-processing tool for structured data. Works with patterns to extract
+                            fields (columns).</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">13</span>
+                            <span>What is sed used for?</span>
+                        </div>
+                        <div class="answer">Stream Editor. Performs find/replace operations. Example:
+                            <code>sed 's/old/new/g' file.txt</code>.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">14</span>
+                            <span>What do who and whoami do?</span>
+                        </div>
+                        <div class="answer"><code>who</code> shows logged-in users. <code>whoami</code> shows the
+                            current user.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">15</span>
+                            <span>What is the top command?</span>
+                        </div>
+                        <div class="answer">Displays real-time CPU, memory, and process usage. Vital for performance
+                            debugging.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">16</span>
+                            <span>What does hostname do?</span>
+                        </div>
+                        <div class="answer">Shows the name of the current machine. Helps verify you are on the correct
+                            server.</div>
+                    </div>
+                </div>
+
+                <div class="quick-commands">
+                    <h3>✅ Frequently Asked Quick Commands</h3>
+                    <div class="command-grid">
+                        <div class="command-item">
+                            <strong>List files:</strong>
+                            <code>ls -ltr</code>
+                        </div>
+                        <div class="command-item">
+                            <strong>Current Dir:</strong>
+                            <code>pwd</code>
+                        </div>
+                        <div class="command-item">
+                            <strong>View Content:</strong>
+                            <code>cat file.txt</code>
+                        </div>
+                        <div class="command-item">
+                            <strong>Search Text:</strong>
+                            <code>grep "text" file</code>
+                        </div>
+                        <div class="command-item">
+                            <strong>Copy:</strong>
+                            <code>cp file1 file2</code>
+                        </div>
+                        <div class="command-item">
+                            <strong>Move/Rename:</strong>
+                            <code>mv old new</code>
+                        </div>
+                        <div class="command-item">
+                            <strong>Remove:</strong>
+                            <code>rm file.txt</code>
+                        </div>
+                        <div class="command-item">
+                            <strong>Disk Usage:</strong>
+                            <code>df -h</code>
+                        </div>
+                        <div class="command-item">
+                            <strong>Memory:</strong>
+                            <code>free -h</code>
+                        </div>
+                        <div class="command-item">
+                            <strong>Monitor:</strong>
+                            <code>top</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Linux Concepts Section -->
+            <section id="linux">
+                <div class="section-header">
+                    <h2 class="section-title">Linux Concepts</h2>
+                    <p class="section-subtitle">Core Linux system concepts</p>
+                </div>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">1</span>
+                            <span>What is Linux?</span>
+                        </div>
+                        <div class="answer">Open-source OS based on UNIX. Provides multitasking, multi-user support, and
+                            security. Used in servers, DevOps, and Cloud.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">2</span>
+                            <span>What are runlevels?</span>
+                        </div>
+                        <div class="answer">System states at boot. 0 (halt), 3 (multi-user), 5 (GUI), 6 (reboot).
+                            Controls which services start.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">3</span>
+                            <span>Hard Link vs Soft Link?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Hard Link:</strong> Points directly to inode. Cannot cross filesystems.<br>
+                            <strong>Soft Link:</strong> Shortcut pointing to a file path. Breaks if the target is
+                            deleted.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">4</span>
+                            <span>What is a zombie process?</span>
+                        </div>
+                        <div class="answer">A completed process that still has an entry in the process table because the
+                            parent didn't collect its exit status.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">5</span>
+                            <span>What is SSH?</span>
+                        </div>
+                        <div class="answer">Secure Shell. A protocol for secure remote login. Encrypts communication.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">6</span>
+                            <span>How to schedule jobs?</span>
+                        </div>
+                        <div class="answer">Use <code>crontab -e</code> for repeated jobs and <code>at</code> for
+                            one-time jobs. Cron format: Minute Hour Day Month Weekday.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Shell Scripting Section -->
+            <section id="shell">
+                <div class="section-header">
+                    <h2 class="section-title">Shell Scripting</h2>
+                    <p class="section-subtitle">Automation and scripting essentials</p>
+                </div>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">1</span>
+                            <span>How to execute a script?</span>
+                        </div>
+                        <div class="answer"><code>sh script.sh</code> OR give permission <code>chmod +x script.sh</code>
+                            and run <code>./script.sh</code>.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">2</span>
+                            <span>What is a shebang (#!)?</span>
+                        </div>
+                        <div class="answer">It tells the system which interpreter to use (e.g.,
+                            <code>#!/bin/bash</code>). Must be the first line.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">3</span>
+                            <span>Reading user input?</span>
+                        </div>
+                        <div class="answer">Use the <code>read</code> command. Example: <code>read name</code> stores
+                            input in the $name variable.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">4</span>
+                            <span>Difference between == and =?</span>
+                        </div>
+                        <div class="answer"><code>=</code> is POSIX standard for string comparison. <code>==</code> is
+                            Bash specific. For numbers, use <code>-eq</code>.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">5</span>
+                            <span>Variables?</span>
+                        </div>
+                        <div class="answer">Declare: <code>name="John"</code> (no spaces). Access: <code>$name</code>.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">6</span>
+                            <span>Conditionals?</span>
+                        </div>
+                        <div class="answer">Use <code>if</code>, <code>elif</code>, <code>else</code>. Conditions go
+                            inside <code>[ ]</code> or <code>[[ ]]</code>.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">7</span>
+                            <span>Loops?</span>
+                        </div>
+                        <div class="answer"><code>for</code>, <code>while</code>, <code>until</code>. Used to process
+                            lists or files.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">8</span>
+                            <span>Special Variables?</span>
+                        </div>
+                        <div class="answer">
+                            <code>$#</code>: Arg count.<br>
+                            <code>$@</code>: All args.<br>
+                            <code>$?</code>: Exit status (0=success).<br>
+                            <code>$$</code>: Process ID.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">9</span>
+                            <span>Redirection?</span>
+                        </div>
+                        <div class="answer">
+                            <code>></code> overwrites.<br>
+                            <code>>></code> appends.<br>
+                            <code>2></code> redirects errors.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Oracle SQL & PL/SQL Section -->
+            <section id="sql">
+                <div class="section-header">
+                    <h2 class="section-title">Oracle SQL & PL/SQL</h2>
+                    <p class="section-subtitle">Database fundamentals and advanced concepts</p>
+                </div>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">1</span>
+                            <span>What are constraints?</span>
+                        </div>
+                        <div class="answer">Rules to ensure data integrity. Types: PRIMARY KEY, FOREIGN KEY, UNIQUE,
+                            CHECK, NOT NULL.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">2</span>
+                            <span>DELETE vs TRUNCATE vs DROP?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>DELETE:</strong> Removes rows, can rollback.<br>
+                            <strong>TRUNCATE:</strong> Removes all rows instantly, cannot rollback.<br>
+                            <strong>DROP:</strong> Removes table structure.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">3</span>
+                            <span>Primary Key vs Foreign Key?</span>
+                        </div>
+                        <div class="answer">PK uniquely identifies a row (no NULLs). FK links to a PK in another table
+                            to ensure referential integrity.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">4</span>
+                            <span>What is a Stored Procedure?</span>
+                        </div>
+                        <div class="answer">Compiled code stored in DB. Accepts inputs, performs logic, returns outputs.
+                            Improves performance.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">5</span>
+                            <span>Function vs Procedure?</span>
+                        </div>
+                        <div class="answer">A Function <strong>must</strong> return a value and can be used in SELECT
+                            statements. Procedures may or may not return values.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">6</span>
+                            <span>What is a Trigger?</span>
+                        </div>
+                        <div class="answer">Code that executes automatically on events (INSERT, UPDATE, DELETE). Used
+                            for auditing.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">7</span>
+                            <span>RANK() vs DENSE_RANK()?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>RANK():</strong> Skips numbers on ties (1, 1, 3).<br>
+                            <strong>DENSE_RANK():</strong> No skipping (1, 1, 2).
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">8</span>
+                            <span>What is Normalization?</span>
+                        </div>
+                        <div class="answer">Organizing data to reduce redundancy by dividing large tables into smaller
+                            related ones.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">9</span>
+                            <span>What is an Index?</span>
+                        </div>
+                        <div class="answer">Structure to improve query speed. Too many indexes can slow down write
+                            operations (INSERT/UPDATE).</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">10</span>
+                            <span>View vs Materialized View?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>View:</strong> Virtual, fetches data on query.<br>
+                            <strong>Materialized View:</strong> Stores physical data, refreshes periodically.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">11</span>
+                            <span>What is NVL()?</span>
+                        </div>
+                        <div class="answer">Replaces NULL with a specific value. <code>NVL(column, 0)</code>.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">12</span>
+                            <span>WHERE vs HAVING?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>WHERE:</strong> Filters before grouping.<br>
+                            <strong>HAVING:</strong> Filters after GROUP BY.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">13</span>
+                            <span>UNION vs UNION ALL?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>UNION:</strong> Removes duplicates (slower).<br>
+                            <strong>UNION ALL:</strong> Includes duplicates (faster).
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Topics Section -->
+            <section id="advanced">
+                <div class="section-header">
+                    <h2 class="section-title">Advanced Oracle Topics</h2>
+                    <p class="section-subtitle">Performance tuning and optimization</p>
+                </div>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">1</span>
+                            <span>What are Hints in Oracle?</span>
+                        </div>
+                        <div class="answer">Hints provide instructions to the optimizer to choose a certain execution
+                            plan. Common hints: INDEX, PARALLEL, APPEND, NOCOPY, USE_HASH, USE_NL.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">2</span>
+                            <span>What is PARALLEL Hint?</span>
+                        </div>
+                        <div class="answer">Instructs the optimizer to use multiple server processes to execute SQL
+                            statements. Divides large tasks into smaller chunks and processes them using multiple CPU
+                            threads. Improves performance for large data volumes.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">3</span>
+                            <span>INDEX Hints</span>
+                        </div>
+                        <div class="answer">Instructs optimizer to use specific index instead of Full Table Scan.<br>
+                            <code>SELECT /*+ INDEX(table_alias index_name) */ columns FROM table_name</code>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">4</span>
+                            <span>APPEND Hints</span>
+                        </div>
+                        <div class="answer">Used with INSERT to enable direct-path insert, bypassing buffer cache and
+                            writing directly to datafiles.<br>
+                            <code>INSERT /*+ APPEND */ INTO target_table SELECT * FROM source_table;</code>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">5</span>
+                            <span>NOCOPY Hints</span>
+                        </div>
+                        <div class="answer">Used in PL/SQL to optimize IN OUT and OUT parameters. Uses pass-by-reference
+                            instead of pass-by-value for large data like collections, records, or LOBs.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">6</span>
+                            <span>USE_HASH Hint</span>
+                        </div>
+                        <div class="answer">Forces Oracle to use Hash Join between tables. Best when joining large
+                            tables.<br>
+                            <code>SELECT /*+ USE_HASH(t2) */ ... FROM table1 t1 JOIN table2 t2</code>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">7</span>
+                            <span>USE_NL Hint</span>
+                        </div>
+                        <div class="answer">Forces Oracle to use Nested Loop Join. Best when one table is small and
+                            indexes are available on join column.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">8</span>
+                            <span>Advantages of Triggers?</span>
+                        </div>
+                        <div class="answer">Triggers are PL/SQL subprograms associated with tables, schemas, or
+                            databases. They fire implicitly on events (INSERT, UPDATE, DELETE). Types: Statement Level
+                            and Row Level triggers.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">9</span>
+                            <span>DML Error Logging</span>
+                        </div>
+                        <div class="answer">Captures errors during DML operations without stopping the entire operation.
+                            Uses separate error logging table for constraint violations. Useful in bulk data loads with
+                            REJECT LIMIT.</div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">10</span>
+                            <span>Unique Index vs Unique Key</span>
+                        </div>
+                        <div class="answer">Unique Key Constraint enforces uniqueness without duplicate values (except
+                            NULL). Oracle creates unique index automatically when you create primary key or unique key.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practical Scenarios Section -->
+            <section id="scenarios">
+                <div class="section-header">
+                    <h2 class="section-title">Practical & Scenario Questions</h2>
+                    <p class="section-subtitle">Real-world problem solving</p>
+                </div>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">1</span>
+                            <span>Job running longer than usual - How to troubleshoot?</span>
+                        </div>
+                        <div class="answer">
+                            <ol class="simple-list">
+                                <li>Check if parallel jobs are running</li>
+                                <li>Check for ongoing deployments or patching</li>
+                                <li>Check for blocking sessions:
+                                    <code>SELECT blocking_session, sid FROM v$session WHERE blocking_session IS NOT NULL</code>
+                                </li>
+                                <li>Check stats: Compare table count vs stats count. If mismatch, gather stats</li>
+                                <li>Check for old execution plans with DBA team</li>
+                                <li>Consult performance team if needed</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">2</span>
+                            <span>AutoSys Logic Scenarios</span>
+                        </div>
+                        <div class="answer">
+                            <ul class="simple-list">
+                                <li><strong>On Ice vs On Hold:</strong> On Ice passes success to downstream; On Hold
+                                    blocks downstream</li>
+                                <li><strong>Box Job Status:</strong> If a box has 10 jobs and 1 fails, the Box status
+                                    becomes FAILURE</li>
+                                <li><strong>File Watcher:</strong> Needs file path, file name, and start time</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">3</span>
+                            <span>Unix Practical Tasks</span>
+                        </div>
+                        <div class="answer">
+                            <ul class="simple-list">
+                                <li><strong>Remove lines 30-50:</strong> <code>sed '30,50d' filename > newfile</code>
+                                </li>
+                                <li><strong>Delete files older than 7 days:</strong>
+                                    <code>find /path -mtime +7 -exec rm {} \;</code>
+                                </li>
+                                <li><strong>Check if file exists:</strong>
+                                    <code>if [ -f "file.txt" ]; then echo "Exists"; fi</code>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">4</span>
+                            <span>SQL Practical Questions</span>
+                        </div>
+                        <div class="answer">
+                            <ul class="simple-list">
+                                <li><strong>3rd Highest Salary:</strong> Use <code>DENSE_RANK()</code> or subquery with
+                                    rownum</li>
+                                <li><strong>Extract Name from Email:</strong>
+                                    <code>SUBSTR(email, 1, INSTR(email, '@') - 1)</code>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Incident Management Section -->
+            <section id="incidents">
+                <div class="section-header">
+                    <h2 class="section-title">Incident Management (P1/P2)</h2>
+                    <p class="section-subtitle">Production support and crisis management</p>
+                </div>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">1</span>
+                            <span>Explain a P1 or P2 issue you handled</span>
+                        </div>
+                        <div class="answer">
+                            <em>Example Answer:</em> "I handled a P1 issue where a critical End-of-Day (EOD) batch job
+                            was stuck in 'STARTING' state for over 30 minutes, delaying downstream bank settlements. I
+                            identified high memory usage on the agent machine, restarted the agent service,
+                            force-started the job, and the stream completed successfully."
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">2</span>
+                            <span>How to troubleshoot P1/P2 incidents?</span>
+                        </div>
+                        <div class="answer">
+                            <ol class="simple-list">
+                                <li><strong>Acknowledge:</strong> Accept ticket immediately to meet SLA</li>
+                                <li><strong>Impact Analysis:</strong> Determine business impact</li>
+                                <li><strong>Bridge Call:</strong> Join technical bridge if required</li>
+                                <li><strong>Check Logs:</strong> Review Application, DB, and System logs</li>
+                                <li><strong>Resolution:</strong> Apply fix or workaround</li>
+                                <li><strong>RCA:</strong> Provide Root Cause Analysis after resolution</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">3</span>
+                            <span>Tools used for incident management</span>
+                        </div>
+                        <div class="answer">
+                            <ul class="simple-list">
+                                <li><strong>Ticketing:</strong> ServiceNow, Jira, Remedy</li>
+                                <li><strong>Monitoring:</strong> Splunk, Grafana, AppDynamics, Nagios</li>
+                                <li><strong>Scheduling:</strong> AutoSys, Control-M</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Interview Questions Section -->
+            <section id="additional">
+                <div class="section-header">
+                    <h2 class="section-title">Additional Interview Questions</h2>
+                    <p class="section-subtitle">Comprehensive coverage of AutoSys, Change Management, Unix, and SQL</p>
+                </div>
+
+                <!-- AutoSys Advanced -->
+                <h3
+                    style="color: var(--text-primary); font-size: 1.5rem; margin: 2rem 0 1.5rem; padding-left: 1rem; border-left: 4px solid #667eea;">
+                    AutoSys Advanced Topics</h3>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>How many types of jobs are available in Autosys?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Main job types:</strong>
+                            <ul class="simple-list">
+                                <li><strong>Command Job:</strong> Executes shell scripts, programs, or commands</li>
+                                <li><strong>Box Job:</strong> Container that groups related jobs together</li>
+                                <li><strong>File Watcher Job:</strong> Monitors file existence or modification</li>
+                                <li><strong>FTP Job:</strong> Transfers files between systems</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Main difference between command jobs, box jobs, and file watcher jobs?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Command Job:</strong> Runs executable code (scripts/programs) on a specified
+                            machine.<br><br>
+                            <strong>Box Job:</strong> Logical container that doesn't execute code itself but controls
+                            the flow of jobs inside it. Used for grouping and dependency management.<br><br>
+                            <strong>File Watcher Job:</strong> Monitors a specific file path and triggers when the file
+                            appears or is modified. Doesn't execute commands but enables downstream jobs.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>What types of job states are available in Autosys?</span>
+                        </div>
+                        <div class="answer">
+                            <ul class="simple-list">
+                                <li><strong>INACTIVE:</strong> Job is defined but not scheduled to run</li>
+                                <li><strong>ACTIVATED:</strong> Job is ready and waiting for start conditions</li>
+                                <li><strong>STARTING:</strong> Job is being initiated</li>
+                                <li><strong>RUNNING:</strong> Job is currently executing</li>
+                                <li><strong>SUCCESS:</strong> Job completed successfully</li>
+                                <li><strong>FAILURE:</strong> Job failed during execution</li>
+                                <li><strong>TERMINATED:</strong> Job was killed manually</li>
+                                <li><strong>ON_HOLD:</strong> Job is paused and won't run</li>
+                                <li><strong>ON_ICE:</strong> Job is bypassed but passes success to downstream</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Difference between 'active' state and 'starting' state?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>ACTIVATED:</strong> Job is enabled and waiting for its start conditions to be met
+                            (time, dependencies, etc.). It's ready but not yet initiated.<br><br>
+                            <strong>STARTING:</strong> All conditions are met and the job is in the process of being
+                            launched. The system is allocating resources and initiating execution.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>If a box contains 10 jobs and nine succeed but one fails, what is the status of the
+                                box?</span>
+                        </div>
+                        <div class="answer">
+                            The box status will be <strong>FAILURE</strong>. A box job's status reflects the worst
+                            status of its child jobs. Even if only one job fails, the entire box is marked as FAILURE.
+                            This is important for dependency management and alerting.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>What is a dependency in AutoSys?</span>
+                        </div>
+                        <div class="answer">
+                            A dependency is a condition that must be satisfied before a job can start. Types include:
+                            <ul class="simple-list">
+                                <li><strong>Success Dependency:</strong> Job runs only if another job succeeds</li>
+                                <li><strong>Failure Dependency:</strong> Job runs only if another job fails</li>
+                                <li><strong>Done Dependency:</strong> Job runs when another job completes (success or
+                                    failure)</li>
+                                <li><strong>Time Dependency:</strong> Job runs at a specific time</li>
+                            </ul>
+                            Defined using <code>condition</code> attribute in JIL.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>File Watcher Job - Minimum requirements to run daily at 6:00 AM IST?</span>
+                        </div>
+                        <div class="answer">
+                            <pre><code>insert_job: FILE_WATCH_JOB
+job_type: FW
+machine: server_name
+watch_file: /path/to/file.txt
+watch_file_min_size: 1
+start_times: "06:00"
+run_calendar: weekdays
+owner: username@domain
+permission: gx,ge,wx,we
+alarm_if_fail: 1</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Extra attributes for File Watcher job?</span>
+                        </div>
+                        <div class="answer">
+                            <ul class="simple-list">
+                                <li><code>watch_interval:</code> How often to check for the file (in seconds)</li>
+                                <li><code>watch_file_min_size:</code> Minimum file size to consider (prevents empty
+                                    files)</li>
+                                <li><code>watch_file_change_time:</code> Monitors file modification time</li>
+                                <li><code>max_run_alarm:</code> Alert if file doesn't appear within expected time</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Difference between auto profile variable and global variable?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Auto Profile Variable:</strong> Environment variables set automatically when a job
+                            runs on a specific machine. Defined in the agent's profile and loaded at job execution.
+                            Machine-specific.<br><br>
+                            <strong>Global Variable:</strong> Variables defined at the AutoSys instance level using JIL.
+                            Available to all jobs across all machines. Centrally managed and can be updated without
+                            changing individual job definitions.<br><br>
+                            Example: <code>export GLOBAL_VAR=value</code> vs
+                            <code>insert_autosys_global: VAR_NAME</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Change Management -->
+                <h3
+                    style="color: var(--text-primary); font-size: 1.5rem; margin: 3rem 0 1.5rem; padding-left: 1rem; border-left: 4px solid #f093fb;">
+                    Change Management</h3>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Have you performed migrations or change management activities?</span>
+                        </div>
+                        <div class="answer">
+                            <em>Example Answer:</em> "Yes, I have worked on multiple change management activities
+                            including:
+                            <ul class="simple-list">
+                                <li>Job migrations from Dev → UAT → Production environments</li>
+                                <li>Database schema changes and stored procedure deployments</li>
+                                <li>Application code releases coordinated with batch job schedules</li>
+                                <li>Infrastructure changes (server upgrades, agent installations)</li>
+                            </ul>
+                            All changes followed ITIL processes with proper approvals and rollback plans."
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Types of changes: Work Request vs Change Request?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Work Request (Service Request):</strong>
+                            <ul class="simple-list">
+                                <li>Standard, pre-approved activities</li>
+                                <li>Low risk, routine tasks</li>
+                                <li>Examples: Password resets, access requests, job restarts</li>
+                                <li>Faster approval process</li>
+                            </ul>
+                            <strong>Change Request (RFC):</strong>
+                            <ul class="simple-list">
+                                <li>Modifications to production systems</li>
+                                <li>Requires CAB (Change Advisory Board) approval</li>
+                                <li>Examples: Code deployments, infrastructure changes, new job implementations</li>
+                                <li>Needs impact analysis, testing, and rollback plan</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>End-to-end change process from start to finish?</span>
+                        </div>
+                        <div class="answer">
+                            <ol class="simple-list">
+                                <li><strong>Request Initiation:</strong> Create change request in ServiceNow/Remedy with
+                                    details</li>
+                                <li><strong>Impact Analysis:</strong> Assess risk, affected systems, downtime
+                                    requirements</li>
+                                <li><strong>Planning:</strong> Create implementation plan, rollback plan, test plan</li>
+                                <li><strong>Approval:</strong> Submit to CAB for review and approval</li>
+                                <li><strong>Scheduling:</strong> Book change window (usually off-hours for production)
+                                </li>
+                                <li><strong>Communication:</strong> Notify stakeholders about planned change</li>
+                                <li><strong>Implementation:</strong> Execute change during approved window</li>
+                                <li><strong>Testing:</strong> Validate changes work as expected</li>
+                                <li><strong>Verification:</strong> Monitor for issues post-implementation</li>
+                                <li><strong>Closure:</strong> Document results and close change ticket</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unix and Shell Scripting Practical -->
+                <h3
+                    style="color: var(--text-primary); font-size: 1.5rem; margin: 3rem 0 1.5rem; padding-left: 1rem; border-left: 4px solid #4facfe;">
+                    Unix & Shell Scripting Practical</h3>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>How do you perform log monitoring?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Real-time monitoring:</strong><br>
+                            <code>tail -f /var/log/application.log</code><br>
+                            <code>tail -f /var/log/application.log | grep ERROR</code><br><br>
+                            <strong>Search for specific patterns:</strong><br>
+                            <code>grep "ERROR" /var/log/application.log</code><br>
+                            <code>grep -i "exception" /var/log/*.log</code><br><br>
+                            <strong>Count occurrences:</strong><br>
+                            <code>grep -c "ERROR" application.log</code><br><br>
+                            <strong>View logs from specific time:</strong><br>
+                            <code>awk '/2024-01-05 10:00/,/2024-01-05 11:00/' app.log</code>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>How do you create an empty file in Unix?</span>
+                        </div>
+                        <div class="answer">
+                            Multiple methods:<br>
+                            <code>touch filename.txt</code> (most common)<br>
+                            <code>> filename.txt</code><br>
+                            <code>cat /dev/null > filename.txt</code><br>
+                            <code>echo -n > filename.txt</code><br><br>
+                            The <code>touch</code> command also updates the timestamp of existing files.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>How to remove lines 30 to 50 from a text file?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Using sed:</strong><br>
+                            <code>sed '30,50d' filename.txt > newfile.txt</code><br><br>
+                            <strong>In-place editing:</strong><br>
+                            <code>sed -i '30,50d' filename.txt</code><br><br>
+                            <strong>Using awk:</strong><br>
+                            <code>awk 'NR<30 || NR>50' filename.txt > newfile.txt</code>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Does sed delete lines permanently or temporarily?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Without -i flag:</strong> Changes are TEMPORARY. Output goes to stdout, original
+                            file unchanged.<br>
+                            <code>sed '30,50d' file.txt</code> (displays result, file unchanged)<br><br>
+                            <strong>With -i flag:</strong> Changes are PERMANENT. Modifies the original file.<br>
+                            <code>sed -i '30,50d' file.txt</code> (file is modified)<br><br>
+                            <strong>Best practice:</strong> Always create a backup before using -i:<br>
+                            <code>sed -i.bak '30,50d' file.txt</code> (creates file.txt.bak)
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>How to delete files older than 7 days?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Using find command:</strong><br>
+                            <code>find /path/to/directory -type f -mtime +7 -delete</code><br><br>
+                            <strong>With confirmation:</strong><br>
+                            <code>find /path/to/directory -type f -mtime +7 -exec rm {} \;</code><br><br>
+                            <strong>Delete specific file types:</strong><br>
+                            <code>find /path -name "*.log" -mtime +7 -delete</code><br><br>
+                            <strong>List before deleting (dry run):</strong><br>
+                            <code>find /path -type f -mtime +7 -ls</code>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Write a script to connect to a database</span>
+                        </div>
+                        <div class="answer">
+                            <pre><code>#!/bin/bash
+# Database connection script
+
+DB_USER="username"
+DB_PASS="password"
+DB_SID="ORCL"
+
+sqlplus -s ${DB_USER}/${DB_PASS}@${DB_SID} <<EOF
+SET PAGESIZE 0
+SET FEEDBACK OFF
+SET HEADING OFF
+
+SELECT COUNT(*) FROM employees;
+
+EXIT;
+EOF
+
+# Check exit status
+if [ $? -eq 0 ]; then
+    echo "Database connection successful"
+else
+    echo "Database connection failed"
+    exit 1
+fi</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Write a script to check if a file exists</span>
+                        </div>
+                        <div class="answer">
+                            <pre><code>#!/bin/bash
+
+FILE="/path/to/file.txt"
+
+if [ -f "$FILE" ]; then
+    echo "File exists: $FILE"
+    echo "File size: $(du -h $FILE | cut -f1)"
+    echo "Last modified: $(stat -c %y $FILE)"
+else
+    echo "File does not exist: $FILE"
+    exit 1
+fi
+
+# Additional checks:
+# -d : Check if directory exists
+# -e : Check if file/directory exists
+# -r : Check if readable
+# -w : Check if writable
+# -x : Check if executable</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SQL Advanced -->
+                <h3
+                    style="color: var(--text-primary); font-size: 1.5rem; margin: 3rem 0 1.5rem; padding-left: 1rem; border-left: 4px solid #43e97b;">
+                    SQL & Database Advanced</h3>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>How to find the third-highest salary?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Method 1: Using DENSE_RANK()</strong>
+                            <pre><code>SELECT salary
+FROM (
+    SELECT salary, 
+           DENSE_RANK() OVER (ORDER BY salary DESC) as rank
+    FROM employees
+)
+WHERE rank = 3;</code></pre>
+                            <strong>Method 2: Using subquery</strong>
+                            <pre><code>SELECT MAX(salary)
+FROM employees
+WHERE salary < (
+    SELECT MAX(salary)
+    FROM employees
+    WHERE salary < (
+        SELECT MAX(salary)
+        FROM employees
+    )
+);</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Difference between inner join and outer join?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>INNER JOIN:</strong> Returns only matching rows from both tables. If no match
+                            exists, the row is excluded.<br>
+                            <code>SELECT * FROM A INNER JOIN B ON A.id = B.id</code><br><br>
+                            <strong>OUTER JOIN:</strong> Returns matching rows PLUS unmatched rows from one or both
+                            tables (with NULLs for missing data).<br><br>
+                            <strong>Key difference:</strong> INNER JOIN is restrictive (intersection), OUTER JOIN is
+                            inclusive (union with NULLs).
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Different types of outer joins?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>LEFT OUTER JOIN (LEFT JOIN):</strong><br>
+                            Returns all rows from left table + matching rows from right table. NULLs for non-matching
+                            right table rows.<br>
+                            <code>SELECT * FROM A LEFT JOIN B ON A.id = B.id</code><br><br>
+                            <strong>RIGHT OUTER JOIN (RIGHT JOIN):</strong><br>
+                            Returns all rows from right table + matching rows from left table. NULLs for non-matching
+                            left table rows.<br>
+                            <code>SELECT * FROM A RIGHT JOIN B ON A.id = B.id</code><br><br>
+                            <strong>FULL OUTER JOIN:</strong><br>
+                            Returns all rows from both tables. NULLs where no match exists.<br>
+                            <code>SELECT * FROM A FULL OUTER JOIN B ON A.id = B.id</code>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>UNION vs UNION ALL - Which is faster?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>UNION:</strong><br>
+                            - Combines results and removes duplicates<br>
+                            - Performs sorting to identify duplicates<br>
+                            - SLOWER due to duplicate elimination<br><br>
+                            <strong>UNION ALL:</strong><br>
+                            - Combines results and keeps all rows including duplicates<br>
+                            - No sorting or duplicate checking<br>
+                            - FASTER (recommended when duplicates are acceptable)<br><br>
+                            <strong>Performance tip:</strong> Use UNION ALL when you know there are no duplicates or
+                            when duplicates don't matter.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Difference between GROUP BY, HAVING, and ORDER BY?</span>
+                        </div>
+                        <div class="answer">
+                            <strong>GROUP BY:</strong> Groups rows with same values into summary rows. Used with
+                            aggregate functions (COUNT, SUM, AVG).<br>
+                            <code>SELECT dept, COUNT(*) FROM emp GROUP BY dept</code><br><br>
+                            <strong>HAVING:</strong> Filters groups AFTER grouping. Works with aggregate functions.<br>
+                            <code>SELECT dept, COUNT(*) FROM emp GROUP BY dept HAVING COUNT(*) > 5</code><br><br>
+                            <strong>ORDER BY:</strong> Sorts the final result set. Applied at the end.<br>
+                            <code>SELECT * FROM emp ORDER BY salary DESC</code><br><br>
+                            <strong>Execution order:</strong> WHERE → GROUP BY → HAVING → ORDER BY
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>What is an inline view?</span>
+                        </div>
+                        <div class="answer">
+                            An inline view is a subquery in the FROM clause that acts as a temporary table. Also called
+                            a "derived table".<br><br>
+                            <strong>Example:</strong>
+                            <pre><code>SELECT dept_name, avg_salary
+FROM (
+    SELECT department_id, 
+           AVG(salary) as avg_salary
+    FROM employees
+    GROUP BY department_id
+) emp_avg
+JOIN departments d 
+ON emp_avg.department_id = d.department_id
+WHERE avg_salary > 50000;</code></pre>
+                            <strong>Benefits:</strong> Simplifies complex queries, improves readability, enables
+                            multi-level aggregations.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">Q</span>
+                            <span>Extract name from email using INSTR and SUBSTR</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Problem:</strong> Extract "john" from "john@gmail.com"<br><br>
+                            <strong>Solution:</strong>
+                            <pre><code>SELECT 
+    email,
+    SUBSTR(email, 1, INSTR(email, '@') - 1) as username
+FROM users;
+
+-- Example:
+-- email: john@gmail.com
+-- INSTR(email, '@') returns 5
+-- SUBSTR(email, 1, 4) returns 'john'</code></pre>
+                            <strong>Explanation:</strong><br>
+                            - <code>INSTR(email, '@')</code> finds position of @<br>
+                            - <code>SUBSTR(email, 1, position-1)</code> extracts from start to before @
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Tuning -->
+                <h3
+                    style="color: var(--text-primary); font-size: 1.5rem; margin: 3rem 0 1.5rem; padding-left: 1rem; border-left: 4px solid #f5576c;">
+                    Performance Tuning</h3>
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">🚀</span>
+                            <span>Indexing Best Practices</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Create Appropriate Indexes:</strong>
+                            <ul class="simple-list">
+                                <li>Index columns frequently used in WHERE clauses</li>
+                                <li>Index columns used in JOIN conditions</li>
+                                <li>Index columns used in ORDER BY and GROUP BY</li>
+                            </ul>
+                            <strong>Avoid Over-Indexing:</strong>
+                            <ul class="simple-list">
+                                <li>Too many indexes increase maintenance overhead</li>
+                                <li>Slows down INSERT, UPDATE, DELETE operations</li>
+                                <li>Increases storage requirements</li>
+                            </ul>
+                            <strong>Example:</strong><br>
+                            <code>CREATE INDEX idx_emp_dept ON employees(department_id);</code>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">⚡</span>
+                            <span>Query Optimization Techniques</span>
+                        </div>
+                        <div class="answer">
+                            <strong>1. Use Proper Join Conditions:</strong><br>
+                            Ensure join conditions are optimized and use indexed columns.<br><br>
+                            <strong>2. Avoid SELECT *:</strong><br>
+                            <code>-- Bad: SELECT * FROM employees;</code><br>
+                            <code>-- Good: SELECT emp_id, name, salary FROM employees;</code><br><br>
+                            <strong>3. Use EXPLAIN PLAN:</strong><br>
+                            <pre><code>EXPLAIN PLAN FOR
+SELECT * FROM employees WHERE dept_id = 10;
+
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);</code></pre>
+                            Analyze execution plan to identify bottlenecks like full table scans.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">💾</span>
+                            <span>Caching and Reuse</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Utilize Caching Mechanisms:</strong>
+                            <ul class="simple-list">
+                                <li>Store frequently accessed data in memory</li>
+                                <li>Use Oracle's Result Cache for query results</li>
+                                <li>Implement application-level caching (Redis, Memcached)</li>
+                            </ul>
+                            <strong>Use Bind Variables:</strong><br>
+                            <code>-- Bad: SELECT * FROM emp WHERE id = 100;</code><br>
+                            <code>-- Good: SELECT * FROM emp WHERE id = :emp_id;</code><br><br>
+                            <strong>Benefits:</strong> Promotes plan stability, reduces parsing overhead, prevents SQL
+                            injection.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">📦</span>
+                            <span>Stored Procedures and Functions</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Encapsulate Logic:</strong>
+                            <ul class="simple-list">
+                                <li>Reduce network overhead by processing data on the database server</li>
+                                <li>Promote code reuse across applications</li>
+                                <li>Improve security through controlled access</li>
+                            </ul>
+                            <strong>Optimize PL/SQL Code:</strong>
+                            <ul class="simple-list">
+                                <li><strong>Loop Efficiency:</strong> Use BULK COLLECT instead of row-by-row processing
+                                </li>
+                                <li><strong>Minimize Context Switches:</strong> Reduce switches between SQL and PL/SQL
+                                    engines</li>
+                                <li><strong>Use Native Compilation:</strong> Compile PL/SQL to native code for better
+                                    performance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">⚙️</span>
+                            <span>Bulk Processing</span>
+                        </div>
+                        <div class="answer">
+                            <strong>BULK COLLECT:</strong> Fetch multiple rows in a single operation<br>
+                            <pre><code>DECLARE
+    TYPE emp_tab IS TABLE OF employees%ROWTYPE;
+    l_emps emp_tab;
+BEGIN
+    SELECT * BULK COLLECT INTO l_emps
+    FROM employees
+    WHERE department_id = 10;
+END;</code></pre>
+                            <strong>FORALL:</strong> Execute DML for multiple rows efficiently<br>
+                            <pre><code>FORALL i IN 1..l_emps.COUNT
+    UPDATE employees
+    SET salary = salary * 1.1
+    WHERE employee_id = l_emps(i).employee_id;</code></pre>
+                            <strong>Benefits:</strong> Reduces context switches, significantly improves performance for
+                            large datasets.
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">🗂️</span>
+                            <span>Partitioning</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Table and Index Partitioning:</strong>
+                            <ul class="simple-list">
+                                <li>Divide large tables into smaller, manageable pieces</li>
+                                <li>Improves query performance through partition pruning</li>
+                                <li>Enhances maintenance operations (backup, archiving)</li>
+                            </ul>
+                            <strong>Partition Types:</strong>
+                            <ul class="simple-list">
+                                <li><strong>Range Partitioning:</strong> Based on date ranges (e.g., monthly sales)</li>
+                                <li><strong>List Partitioning:</strong> Based on discrete values (e.g., regions)</li>
+                                <li><strong>Hash Partitioning:</strong> Evenly distributes data</li>
+                            </ul>
+                            <strong>Example:</strong><br>
+                            <code>CREATE TABLE sales (...) PARTITION BY RANGE (sale_date) (...)</code>
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">📊</span>
+                            <span>Materialized Views</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Purpose:</strong> Precompute and store aggregated or complex query results<br><br>
+                            <strong>Benefits:</strong>
+                            <ul class="simple-list">
+                                <li>Reduces runtime calculations for complex queries</li>
+                                <li>Improves performance for reporting and analytics</li>
+                                <li>Can be refreshed on-demand or on schedule</li>
+                            </ul>
+                            <strong>Example:</strong>
+                            <pre><code>CREATE MATERIALIZED VIEW mv_dept_summary
+REFRESH FAST ON COMMIT
+AS
+SELECT department_id, 
+       COUNT(*) as emp_count,
+       AVG(salary) as avg_salary
+FROM employees
+GROUP BY department_id;</code></pre>
+                            <strong>Refresh Options:</strong> FAST, COMPLETE, FORCE, ON DEMAND, ON COMMIT
+                        </div>
+                    </div>
+
+                    <div class="qa-card">
+                        <div class="question">
+                            <span class="question-icon">📈</span>
+                            <span>Monitoring and Profiling</span>
+                        </div>
+                        <div class="answer">
+                            <strong>Oracle Performance Monitoring Tools:</strong>
+                            <ul class="simple-list">
+                                <li><strong>Oracle Enterprise Manager (OEM):</strong> Comprehensive monitoring and
+                                    diagnostics</li>
+                                <li><strong>AWR (Automatic Workload Repository):</strong> Performance snapshots and
+                                    reports</li>
+                                <li><strong>ADDM (Automatic Database Diagnostic Monitor):</strong> Identifies
+                                    performance bottlenecks</li>
+                                <li><strong>SQL Tuning Advisor:</strong> Recommends SQL optimizations</li>
+                            </ul>
+                            <strong>PL/SQL Profiling Tools:</strong>
+                            <ul class="simple-list">
+                                <li><strong>DBMS_PROFILER:</strong> Identifies slow PL/SQL code sections</li>
+                                <li><strong>PL/Scope:</strong> Analyzes identifier usage in PL/SQL code</li>
+                                <li><strong>DBMS_HPROF:</strong> Hierarchical profiler for detailed analysis</li>
+                            </ul>
+                            <strong>Example:</strong><br>
+                            <code>SELECT * FROM V$SQL WHERE elapsed_time > 1000000;</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar a, nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Card animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.qa-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // ============================================
+        // THEME TOGGLE FUNCTIONALITY
+        // ============================================
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            updateThemeUI(newTheme);
+        }
+
+        function updateThemeUI(theme) {
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+
+            if (theme === 'light') {
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                themeText.textContent = 'Dark';
+            }
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateThemeUI(savedTheme);
+        });
+    </script>
+</body>
+
+</html>
